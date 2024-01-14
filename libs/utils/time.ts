@@ -39,3 +39,9 @@ export const rotateSecond = (second: number) => {
   const oneSecondToDegree = 6;
   return second * oneSecondToDegree;
 };
+
+export const rotateTransformDegree = (degree: number) => {
+  return {
+    transform: `translate3D(-50%, 0, 0) rotate(calc(${degree} * 1deg))`,
+  };
+};
