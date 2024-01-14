@@ -24,6 +24,7 @@ p {
 
 .clock {
   position: relative;
+  z-index: 1;
   width: 400px;
   height: 400px;
   margin: 0 auto;
