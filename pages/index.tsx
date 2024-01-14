@@ -1,13 +1,28 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Tooltip from "../components/common/Tooltip";
 
-import useGetClock from "../hooks/useGetClock";
 import { convertTimeToFull } from "../libs/utils/time";
+import { useRecoilState } from "recoil";
+import { timeState } from "../recoil/atoms/timeAtom";
 
 export default function Clock() {
   const [hover, setHover] = useState(false);
+  const [time, setTime] = useRecoilState(timeState);
 
-  const { hour, minute, second } = useGetClock();
+  useEffect(() => {
+    const getCurrentDate = setInterval(() => {
+      const currentDate = new Date();
+      const hour = currentDate.getHours();
+      const minute = currentDate.getMinutes();
+      const second = currentDate.getSeconds();
+      setTime({
+        hour,
+        minute,
+        second,
+      });
+    }, 1000);
+    return () => clearInterval(getCurrentDate);
+  }, []);
 
   return (
     <>
@@ -22,7 +37,13 @@ export default function Clock() {
         <div className="hands-center hands-seconds"></div>
       </div>
       {hover && (
-        <Tooltip text={`현재시각 ${convertTimeToFull(hour, minute, second)}`} />
+        <Tooltip
+          text={`현재시각 ${convertTimeToFull(
+            time.hour,
+            time.minute,
+            time.second
+          )}`}
+        />
       )}
     </>
   );
