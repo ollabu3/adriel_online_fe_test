@@ -1,15 +1,19 @@
 import { useRecoilValue } from "recoil";
 import { timeState } from "../../../recoil/atoms/timeAtom";
 import { useMemo } from "react";
+import { rotateMinute } from "../../../libs/utils/time";
 
 function Minute() {
-  const { minute } = useRecoilValue(timeState);
+  const { minute, second } = useRecoilValue(timeState);
 
-  console.log({ minute });
+  const rotateMinuteHand = useMemo(() => {
+    const rotate = rotateMinute(minute);
 
-  const degreeMinute = useMemo(() => {}, []);
+    return rotate;
+  }, [minute]);
+  console.log(rotateMinuteHand);
 
-  return <div id="minute" className="hands-center hands-minute"></div>;
+  return <div className="hands-center hands-minute"></div>;
 }
 
 export default Minute;
