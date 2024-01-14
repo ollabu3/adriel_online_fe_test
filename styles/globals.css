@@ -18,6 +18,10 @@ body {
   box-sizing: border-box;
 }
 
+p {
+  margin: 0;
+}
+
 .clock {
   position: relative;
   width: 400px;

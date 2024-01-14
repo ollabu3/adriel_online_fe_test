@@ -1,0 +1,28 @@
+@keyframes fadeout {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.tooltip {
+  z-index: 1;
+  animation-duration: 0.3s;
+  background: rgba(26, 30, 39, 0.8);
+  border-radius: 16px;
+  position: fixed;
+  animation-name: fadeout;
+  padding: 16px;
+}
+
+.text {
+  color: white;
+}
