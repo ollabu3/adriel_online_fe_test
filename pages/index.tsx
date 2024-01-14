@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
-import Tooltip from "../components/common/Tooltip";
 
 import { convertTimeToFull } from "../libs/utils/time";
 import { useRecoilState } from "recoil";
 import { timeState } from "../recoil/atoms/timeAtom";
+import Hour from "../components/common/clock/Hour";
+import Minute from "../components/common/clock/Minute";
+import Second from "../components/common/clock/Second";
 
 export default function Clock() {
   const [hover, setHover] = useState(false);
@@ -31,10 +33,9 @@ export default function Clock() {
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
       >
-        <div className="hands-center hands-hour"></div>
-        {/* 시  */}
-        <div className="hands-center hands-minute"></div>
-        <div className="hands-center hands-seconds"></div>
+        <Hour />
+        <Minute />
+        <Second />
       </div>
       {hover && (
         <Tooltip
