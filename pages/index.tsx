@@ -1,20 +1,18 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Tooltip from "../components/common/Tooltip";
+
+import useGetClock from "../hooks/useGetClock";
 
 export default function Clock() {
   const [hover, setHover] = useState(false);
-  const [date, setDate] = useState(new Date());
 
-  useEffect(() => {
-    const id = setInterval(() => {
-      setDate(new Date());
-    }, 1000);
-    return () => clearInterval(id);
-  }, []);
+  const { hour, minute, second } = useGetClock();
 
-  // console.log(date.getHours());
-  // console.log(date.getMinutes());
-  console.log(date.getSeconds());
+  console.log({
+    hour,
+    minute,
+    second,
+  });
 
   return (
     <>
