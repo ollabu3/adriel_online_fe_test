@@ -1,11 +1,11 @@
-import { useEffect, useRef } from "react";
-import styles from "../../styles/common/tooltip.module.css";
+import { type ReactNode, useEffect, useRef } from "react";
+import styles from "../../../styles/common/tooltip.module.css";
 
 type TooltipProps = {
-  text: string;
+  children: ReactNode;
 };
 
-function Tooltip({ text }: TooltipProps) {
+function TooltipContainer({ children }: TooltipProps) {
   const tooltipRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -29,9 +29,9 @@ function Tooltip({ text }: TooltipProps) {
 
   return (
     <div ref={tooltipRef} className={styles.tooltip}>
-      <p className={styles.text}>{text}</p>
+      {children}
     </div>
   );
 }
 
-export default Tooltip;
+export default TooltipContainer;
