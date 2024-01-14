@@ -32,6 +32,7 @@ export default function Clock() {
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
       >
+        <div className="hands-dot"></div>
         <Hour />
         <Minute />
         <Second />
