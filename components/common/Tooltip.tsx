@@ -1,7 +1,11 @@
 import { useEffect, useRef } from "react";
 import styles from "../../styles/common/tooltip.module.css";
 
-export default function Tooltip() {
+type TooltipProps = {
+  text: string;
+};
+
+function Tooltip({ text }: TooltipProps) {
   const tooltipRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -25,7 +29,9 @@ export default function Tooltip() {
 
   return (
     <div ref={tooltipRef} className={styles.tooltip}>
-      <p className={styles.text}>tooltip</p>
+      <p className={styles.text}>{text}</p>
     </div>
   );
 }
+
+export default Tooltip;
