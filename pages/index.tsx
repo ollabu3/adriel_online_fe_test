@@ -13,7 +13,7 @@ export default function Clock() {
 
   useEffect(() => {
     const getCurrentDate = setInterval(() => {
-      const currentDate = new Date(koreaDate);
+      const currentDate = new Date(koreaDate());
       const hour = currentDate.getHours();
       const minute = currentDate.getMinutes();
       const second = currentDate.getSeconds();

@@ -8,7 +8,7 @@ function Minute() {
 
   const rotateMinuteHand = useMemo(() => {
     const rotate = rotateMinute(minute);
-    return rotateTransformDegree("minute", rotate);
+    return rotateTransformDegree(rotate);
   }, [minute]);
 
   return (

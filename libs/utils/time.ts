@@ -40,13 +40,15 @@ export const rotateSecond = (second: number) => {
   return second * oneSecondToDegree;
 };
 
-export const rotateTransformDegree = (type: string, degree: number) => {
+export const rotateTransformDegree = (degree: number) => {
   return {
     transform: `translate3D(-50%, 0, 0) rotate(calc(${degree}deg))`,
   };
 };
 
 // 타임존 한국 시간
-export const koreaDate = new Date().toLocaleString("en-US", {
-  timeZone: "Asia/Seoul",
-});
+export const koreaDate = () => {
+  return new Date().toLocaleString("en-US", {
+    timeZone: "Asia/Seoul",
+  });
+};
