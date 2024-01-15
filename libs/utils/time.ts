@@ -42,6 +42,6 @@ export const rotateSecond = (second: number) => {
 
 export const rotateTransformDegree = (degree: number) => {
   return {
-    transform: `translate3D(-50%, 0, 0) rotate(calc(${degree} * 1deg))`,
+    transform: `translate3D(-50%, 0, 0) rotate(calc(${degree}deg))`,
   };
 };
