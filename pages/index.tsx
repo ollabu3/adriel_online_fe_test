@@ -16,6 +16,7 @@ export default function Clock() {
       const hour = currentDate.getHours();
       const minute = currentDate.getMinutes();
       const second = currentDate.getSeconds();
+      console.log("currentDate === ", currentDate);
       setTime({
         hour,
         minute,

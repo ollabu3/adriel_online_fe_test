@@ -8,6 +8,7 @@ function Second() {
 
   const rotateSecondHands = useMemo(() => {
     const rotate = rotateSecond(second);
+    console.log({ second, rotate, transform: rotateTransformDegree(rotate) });
     return rotateTransformDegree(rotate);
   }, [second]);
 
