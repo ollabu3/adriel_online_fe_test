@@ -5,6 +5,7 @@ import { timeState } from "../recoil/atoms/timeAtom";
 import Hour from "../components/common/clock/Hour";
 import Minute from "../components/common/clock/Minute";
 import Second from "../components/common/clock/Second";
+import TimeLine from "../components/common/clock/TimeLine";
 import CurrentTimeTooltip from "../components/common/tooltip/CurrentTimeTooltip";
 
 export default function Clock() {
@@ -33,10 +34,11 @@ export default function Clock() {
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
       >
-        <div className="hands-dot"></div>
         <Hour />
         <Minute />
         <Second />
+        <div className="hands-dot"></div>
+        <TimeLine />
       </div>
       {hover && <CurrentTimeTooltip />}
     </>
