@@ -15,6 +15,7 @@
 
 - 이슈사항
   - setInterval을 통한 new Date() 생성은 브라우저의 설정상 한국날짜로 객체가 설정되었으나 첫 recoil Date의 UTC 시간이 0으로 되어있어 timeZone을 한국 시간 기준으로 변경하여 Date를 설정
+  - 1초에 한번씩 setInterval을 통해 recoil State를 업데이트하면서 침의 각을 각 조건에 맞춰 style속성으로 rotation을 변경했으나 첫 렌더링 시 pre-render한 html과 페이지 로드 후 html이 달라 hydration 에러 발생, 따라서 window구성 요소의 렌더링에서 ref와 useEffect를 통해 style상태를 변경하는 로직으로 변경
 
 2. 시계에 마우스 오버시 현재 시간을 툴팁으로 표시(툴팁은 마우스 포인터 우상단에 위치 하며, 마우스의 움직임을 따라 지속적으로 포지션이 업데이트 되어야 함)
 
