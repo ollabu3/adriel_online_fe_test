@@ -8,8 +8,8 @@ function Minute() {
 
   const rotateMinuteHand = useMemo(() => {
     const rotate = rotateMinute(minute);
-    console.log({ minute, rotate, transform: rotateTransformDegree(rotate) });
-    return rotateTransformDegree(rotate);
+    // console.log({ minute, rotate, transform: rotateTransformDegree("minute",rotate) });
+    return rotateTransformDegree("minute", rotate);
   }, [minute]);
 
   return (

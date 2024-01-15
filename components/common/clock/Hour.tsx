@@ -8,8 +8,8 @@ function Hour() {
 
   const rotateHourHand = useMemo(() => {
     const rotate = rotateHour(hour);
-    console.log({ hour, rotate, transform: rotateTransformDegree(rotate) });
-    return rotateTransformDegree(rotate);
+    // console.log({ hour, rotate, transform: rotateTransformDegree(rotate) });
+    return rotateTransformDegree("hour", rotate);
   }, [hour]);
 
   return <div className="hands-center hands-hour" style={rotateHourHand}></div>;

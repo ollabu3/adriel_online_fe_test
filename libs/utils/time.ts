@@ -40,7 +40,8 @@ export const rotateSecond = (second: number) => {
   return second * oneSecondToDegree;
 };
 
-export const rotateTransformDegree = (degree: number) => {
+export const rotateTransformDegree = (type: string, degree: number) => {
+  console.log({ type, degree });
   return {
     transform: `translate3D(-50%, 0, 0) rotate(calc(${degree}deg))`,
   };
