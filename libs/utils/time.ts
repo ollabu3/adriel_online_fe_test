@@ -4,16 +4,17 @@ export const convertTimeToFull = (
   minute: number,
   second: number
 ) => {
+  const newMeridiem = checkMeridiem(hour);
   const newHour = convertTimeToTwoLength(hour);
   const newMinute = convertTimeToTwoLength(minute);
   const newSecond = convertTimeToTwoLength(second);
 
-  return `${newHour}:${newMinute}:${newSecond}`;
+  return `${newMeridiem} ${newHour}시 ${newMinute}분 ${newSecond}초`;
 };
 
 // 1 -> 01
 export const convertTimeToTwoLength = (time: number) => {
-  const initTime = time;
+  const initTime = time % 12;
   const convertTime =
     initTime >= 10 ? String(initTime) : "0" + String(initTime);
   return convertTime;
@@ -50,4 +51,10 @@ export const koreaDate = () => {
   return new Date().toLocaleString("en-US", {
     timeZone: "Asia/Seoul",
   });
+};
+
+// 오전 XX시 오후 XX시
+export const checkMeridiem = (time: number): string => {
+  const initMeridiem = time >= 12 ? "오후" : "오전";
+  return initMeridiem;
 };
