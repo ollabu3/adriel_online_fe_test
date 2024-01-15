@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSetRecoilState } from "recoil";
+import { koreaDate } from "../libs/utils/time";
 import { timeState } from "../recoil/atoms/timeAtom";
 import Hour from "../components/common/clock/Hour";
 import Minute from "../components/common/clock/Minute";
@@ -12,7 +13,7 @@ export default function Clock() {
 
   useEffect(() => {
     const getCurrentDate = setInterval(() => {
-      const currentDate = new Date();
+      const currentDate = new Date(koreaDate);
       const hour = currentDate.getHours();
       const minute = currentDate.getMinutes();
       const second = currentDate.getSeconds();

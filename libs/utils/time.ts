@@ -41,8 +41,12 @@ export const rotateSecond = (second: number) => {
 };
 
 export const rotateTransformDegree = (type: string, degree: number) => {
-  console.log({ type, degree });
   return {
     transform: `translate3D(-50%, 0, 0) rotate(calc(${degree}deg))`,
   };
 };
+
+// 타임존 한국 시간
+export const koreaDate = new Date().toLocaleString("en-US", {
+  timeZone: "Asia/Seoul",
+});

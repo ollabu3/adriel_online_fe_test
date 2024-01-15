@@ -1,8 +1,8 @@
 import { atom } from "recoil";
-import { TimeType } from "../../type/recoil/timeAtom";
+import type { TimeType } from "../../type/recoil/timeAtom";
+import { koreaDate } from "../../libs/utils/time";
 
-const currentDate = new Date();
-console.log(currentDate);
+const currentDate = new Date(koreaDate);
 export const timeState = atom<TimeType>({
   key: "time",
   default: {
